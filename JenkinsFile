@@ -6,26 +6,16 @@ pipeline {
     }
     
     stages{   
-        stage('Clone Backend - DEV ') {
+        stage('Clone Backend and Build - DEV ') {
             agent { label 'DevNodo' }
             steps {
                 git branch: 'main', url: 'https://github.com/alejandrolima/proyectoModulo5.git'
-                sh 'ls -l'
                 echo 'Cloned Backend..'
+                sh 'docker compose up -d'
+                echo 'se levanto la imagen'
             }
         }
-        stage('Build Backend - DEV') {
-            agent { label 'DevNodo' }
-            steps {
-                sh 'docker --version'
-                echo "$PATH"
-                dir('proyectoModulo5'){
-                   sh 'ls -l'
-                   sh 'docker compose up -d'
-                }
-                echo 'Build backend - DEV'
-            }
-        }
+
         stage('Clone Frontend - DEV') {
             agent { label 'DevNodo' }
             steps {

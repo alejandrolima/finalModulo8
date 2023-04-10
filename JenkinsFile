@@ -10,6 +10,7 @@ pipeline {
             agent { label 'DevNodo' }
             steps {
                 git branch: 'main', url: 'https://github.com/alejandrolima/proyectoModulo5.git'
+                sh 'ls -l'
                 echo 'Cloned Backend..'
             }
         }

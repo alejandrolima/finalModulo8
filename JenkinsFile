@@ -1,5 +1,5 @@
 pipeline {
-    agent DevNodo
+    agent any
 
     stages{   
         stage('Clone Backend - DEV ') {

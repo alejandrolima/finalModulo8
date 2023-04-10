@@ -17,12 +17,12 @@ pipeline {
             agent { label 'DevNodo' }
             steps {
                 sh 'docker --version'
+                echo "$PATH"
                 dir('proyectoModulo5'){
                    sh 'ls -l'
                    sh 'docker compose up -d'
-                   echo "$PATH"
-                   echo 'Build backend - DEV'    
                 }
+                echo 'Build backend - DEV'
             }
         }
         stage('Clone Frontend - DEV') {

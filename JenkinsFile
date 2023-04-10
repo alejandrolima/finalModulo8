@@ -16,7 +16,7 @@ pipeline {
         stage('Build Backend - DEV') {
             agent { label 'DevNodo' }
             steps {
-                sh 'docker-compose up -d'
+                sh 'docker compose up -d'
                 echo 'Build backend - DEV'
             }
         }
@@ -30,7 +30,7 @@ pipeline {
         stage('Build Frontend - DEV') {
             agent {label 'DevNodo'}
             steps {
-                sh 'docker-compose up -d dev'
+                sh 'docker compose up -d dev'
                 echo 'Build frontend - DEV'
             }
         }
@@ -46,7 +46,7 @@ pipeline {
         stage("Run Test - QA"){
             agent { label 'DevNodo' }
             steps {
-                sh 'docker-compose up -d test'
+                sh 'docker compose up -d test'
                 echo 'Build tests ..'
             }
         }
@@ -62,7 +62,7 @@ pipeline {
         stage('Build Backend - PROD') {
             agent { label 'DevNodo' }
             steps {
-                sh 'docker-compose up -d'
+                sh 'docker compose up -d'
                 echo 'Build backend - PROD'
             }
         }
@@ -76,7 +76,7 @@ pipeline {
         stage('Build FrontEnd - PROD') {
             agent {label 'DevNodo'}
             steps {
-                sh 'docker-compose up -d vue-app'
+                sh 'docker compose up -d vue-app'
                 echo 'Build FrontEnd - PROD'
             }
         }

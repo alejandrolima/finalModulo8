@@ -17,12 +17,11 @@ pipeline {
             agent { label 'DevNodo' }
             steps {
                 sh 'docker --version'
-                dir('examenModulo8'{
+                dir('examenModulo8'){
                    sh 'docker compose up -d'
                    echo "$PATH"
                    echo 'Build backend - DEV'    
                 }
-                
             }
         }
         stage('Clone Frontend - DEV') {

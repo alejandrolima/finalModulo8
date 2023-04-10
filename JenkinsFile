@@ -16,6 +16,8 @@ pipeline {
         stage('Build Backend - DEV') {
             agent { label 'DevNodo' }
             steps {
+                sh 'docker --version'
+                echo "$PATH"
                 sh 'docker compose up -d'
                 echo 'Build backend - DEV'
             }

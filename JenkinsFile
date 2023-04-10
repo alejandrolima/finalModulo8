@@ -18,6 +18,7 @@ pipeline {
             steps {
                 sh 'docker --version'
                 dir('examenModulo8'){
+                   sh 'ls -l'
                    sh 'docker compose up -d'
                    echo "$PATH"
                    echo 'Build backend - DEV'    

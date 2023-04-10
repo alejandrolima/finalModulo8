@@ -17,8 +17,10 @@ pipeline {
             agent { label 'DevNodo' }
             steps {
                 sh 'docker --version'
+                dir('examenModulo8'{
+                   sh 'docker compose up -d'    
+                }
                 echo "$PATH"
-                sh 'docker compose up -d'
                 echo 'Build backend - DEV'
             }
         }

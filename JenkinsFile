@@ -9,7 +9,6 @@ pipeline {
         stage('Clone Backend - DEV ') {
             agent { label 'DevNodo' }
             steps {
-                sh 'rm -r  '
                 git branch: 'main', url: 'https://github.com/alejandrolima/proyectoModulo5.git'
                 sh 'ls -l'
                 echo 'Cloned Backend..'
